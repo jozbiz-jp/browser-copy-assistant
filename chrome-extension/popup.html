@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Copy Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="copied-list-brand">
+        <img class="copied-list-brand-logo" src="icons/icon-128.png" alt="Browser copy logo" />
+        <h3 class="copied-list-brand-heading">Browser Copy Assistant</h3>
+        <a href="https://github.com/jozbiz-jp/browser-copy-assistant" target="_blank" class="copied-list-brand-info">
+            <i class="material-icons right copied-list-brand-info-icon">info_outline</i>
+        </a>
+    </div>
+    <div id="copied-list-top-btns" class="btn-list">
+        <button id="copy-all-btn" class="btn waves-effect waves-light" name="action">
+            Copy All
+            <i class="material-icons right">content_copy</i>
+        </button>
+        <button id="download-btn" class="btn waves-effect waves-light" name="action">
+            Download All
+            <i class="material-icons right">file_download</i>
+        </button>
+    </div>
+
+
+
+    <!-- Copied list empty -->
+    <div id="copied-list-empty" class="copied-list-empty">
+        <img src="icons/emptybox.png" alt="empty list" />
+        <h2 class="copied-list-empty-heading">No text copied yet.</h2>
+    </div>
+
+    <!-- Copied list wrapper -->
+    <div id="copied-list-content" class="copied-list-wrapper" style="display: none;">
+        <h2 class="copied-list-heading">Copied text list</h2>
+        <!-- Copied text table structure -->
+        <table class="copied-list-table">
+            <thead>
+                <tr>
+                    <th class="copied-list-table-txt">Text</th>
+                    <th class="copied-list-table-actions">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="copied-list">
+                <!-- Copied texts will be appended here dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Pagination container -->
+        <div id="pagination-container"></div>
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+body {
+    padding: 10px;
+    min-width: 300px;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-list .btn .material-icons {
+    max-width: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.btn-list .btn {
+    text-transform: capitalize;
+    font-size: 11px;
+    height: 30px;
+    line-height: 12px;
+    margin: 0;
+    padding: 0 12px;
+    font-family: "Nunito", sans-serif;
+}
+
+
+/* Extension heading with info */
+.copied-list-brand {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.copied-list-brand-logo {
+    width: 24px;
+    height: 24px;
+    margin: auto 0;
+}
+
+.copied-list-brand-heading {
+    font-size: 16px;
+    font-weight: 800;
+    margin: auto 6px auto 8px;
+}
+
+.copied-list-brand-info {
+    margin: auto 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.copied-list-brand-info-icon.material-icons {
+    margin: auto 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Copied list heading with table */
+#copy-all-btn {
+    background-color: #2d75ff;
+}
+
+#download-btn {
+    background-color: #5a68ff;
+}
+.copied-list-heading {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 24px 0 12px;
+}
+
+.table-icons .material-icons {
+    max-width: 20px;
+    overflow: hidden;
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.copied-url {
+    color: #6c6c6c;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+.copied-url-txt {
+    text-transform: lowercase;
+}
+
+.list-copy {
+    color: #5a68ff;
+}
+
+.list-delete {
+    color: #c71100;
+}
+
+.copied-list-table-txt {
+    width: 80%;
+}
+
+.copied-list-table-actions {
+    display: flex;
+    justify-content: end;
+}
+
+
+/* Emoty state */
+.copied-list-empty img {
+    width: 300px;
+    height: 150px;
+    object-fit: contain;
+}
+.copied-list-empty-heading {
+    font-size: 13px;
+    margin: 12px 0 24px;
+    text-align: center;
+}
+
+/* Ellipsis text with max 2 lines */
+.ellipsis-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 300px;
+}
+
+.view-toggle {
+    color: blue;
+    cursor: pointer;
+}
+
+/* Pagination styles */
+#pagination-container {
+    margin-top: 10px;
+}
+
+.pagination-btn {
+    margin: 2px;
+    padding: 4px 8px !important;
+    cursor: pointer;
+    border: 1px solid #5a68ff;
+    background-color: #fff !important;
+    font-size: 10px !important;
+    border-radius: 4px !important;
+}
+
+.pagination-btn.active {
+    background-color: #5a68ff !important;
+    color: #fff;
+}
