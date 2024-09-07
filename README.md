@@ -11,7 +11,7 @@ The extension prevents saving duplicate entries and limits the stored text to th
 - Limits the copied text stack to the most recent 100 entries.
 - Allows users to view, copy, or delete individual texts.
 - "View More" and "View Less" functionality for long copied texts.
-- Provides pagination with 10 items per page.
+- Provides pagination with 5 items per page.
 - Users can copy all stored texts or download them as a text file.
 - The latest copied text is always shown at the top.
 - The url of each copied text is maintained as well.
@@ -33,7 +33,7 @@ The extension prevents saving duplicate entries and limits the stored text to th
 - If the text is new, it gets added to the copied stack, and the stack is automatically trimmed to the last 100 entries.
   
 ### Popup UI
-- The extension popup shows a paginated list of up to 10 copied texts per page.
+- The extension popup shows a paginated list of up to 5 copied texts per page.
 - Each entry has a **"View More/Less"** toggle for long texts, a **copy** button to re-copy the text to the clipboard, and a **delete** button to remove the entry.
   
 ### Buttons
@@ -42,9 +42,14 @@ The extension prevents saving duplicate entries and limits the stored text to th
 
 ## Future Enhancements
 
+- Launch in Firefox extensions
 - Option to clear the entire list of copied texts.
 - Dark mode for the popup interface.
 - Support for syncing copied texts across multiple devices using Chrome Sync.
+
+## Contributing
+
+Contributions are welcome! Please see our [Contributing Guidelines](./CONTRIBUTING.md) for more information.
 
 ## License
 
