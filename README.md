@@ -1,6 +1,6 @@
 # Browser Copy Assistant
 
-Browser Copy Assistant is a simple Chrome extension that captures copied text across your browser tabs and allows you to manage it efficiently. 
+Browser Copy Assistant is a simple open-source Chrome extension that captures copied text across your browser tabs and allows you to manage it efficiently. 
 The extension prevents saving duplicate entries and limits the stored text to the last 100 copied items. Users can view, copy, and delete individual entries or download the entire list of copied texts
 
 
