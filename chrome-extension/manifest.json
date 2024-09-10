@@ -3,7 +3,7 @@
     "name": "Browser Copy Assistant",
     "version": "1.0",
     "description": "Tracks copied text across browser tabs and allows viewing, copying, and downloading the selected texts.",
-    "permissions": ["storage", "activeTab", "downloads"],
+    "permissions": ["storage", "activeTab"],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
