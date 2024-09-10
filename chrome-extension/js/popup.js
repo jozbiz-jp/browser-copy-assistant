@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Copy all items to clipboard
   copyAllBtn.addEventListener('click', () => {
     chrome.storage.local.get({ copiedStack: [] }, (result) => {
-      const allText = result.copiedStack.join('\n');
+      const allText = result.copiedStack.map(item => item.text).join('\n');
       navigator.clipboard.writeText(allText).then(() => {
         alert('Copied all items to clipboard!');
       });
