@@ -26,14 +26,17 @@ button {
     cursor: pointer;
 }
 
-.btn-list .btn .material-icons {
+.btn-list {
+    padding-bottom: 8px;
+}
+.btn-list .btn .material-icons, .bca-text-add.btn .material-icons {
     max-width: 20px;
     overflow: hidden;
     font-size: 12px;
     margin-left: 8px;
 }
 
-.btn-list .btn {
+.btn-list .btn, .bca-text-add.btn {
     text-transform: capitalize;
     font-size: 11px;
     height: 30px;
@@ -72,6 +75,39 @@ button {
     margin: auto 0;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+/* Add block */
+#add-text-btn {
+    background-color: #865aff;
+}
+.copied-list-add-input {
+    margin: 8px 0 0;
+}
+.copied-list-add-input textarea {
+    font-size: 14px;
+    margin-bottom: 2px;
+    min-height: 72px;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #9cbfff;
+}
+.copied-list-add-input textarea:focus {
+    border: 2px solid #2d75ff !important;
+}
+.bca-text-add-line {
+    display: flex;
+    justify-content: space-between;
+}
+.bca-text-add-info-red {
+    color: #c71100;
+    margin: auto 0;
+}
+.bca-text-add-info-success {
+    color: #018f01;
+    margin: auto 0;
 }
 
 
@@ -124,6 +160,9 @@ button {
 
 
 /* Emoty state */
+.copied-list-empty {
+    padding-top: 12px;
+}
 .copied-list-empty img {
     width: 300px;
     height: 150px;

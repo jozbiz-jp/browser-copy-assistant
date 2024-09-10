@@ -3,8 +3,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const paginationContainer = document.getElementById('pagination-container');
   const copyAllBtn = document.getElementById('copy-all-btn');
   const downloadBtn = document.getElementById('download-btn');
+  const addTextBtn = document.getElementById('add-text-btn');
+  const textInput = document.getElementById('text-input');
   const itemsPerPage = 5;
   let currentPage = 1;
+
+  // Add text from input to storage
+  addTextBtn.addEventListener('click', () => {
+    const enteredText = textInput.value.trim();
+    document.getElementById("add-text-status-err").style.display = "none";
+    document.getElementById("add-text-status-success").style.display = "none";
+
+    if (enteredText) {
+      // Get the current tab URL
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const activeTab = tabs[0];
+        const pageUrl = activeTab.url; // Use the active tab's URL
+
+        // Add the text and URL to local storage
+        chrome.storage.local.get({ copiedStack: [] }, (result) => {
+          let copiedStack = result.copiedStack || [];
+
+          // Check if the text already exists in the list
+          const alreadyExists = copiedStack.some(item => item.text === enteredText && item.url === pageUrl);
+
+          if (!alreadyExists) {
+            // Add the new text and URL to the stack
+            copiedStack.push({ text: enteredText, url: pageUrl });
+
+            // Limit the list to the last 100 entries
+            if (copiedStack.length > 100) {
+              copiedStack = copiedStack.slice(-100); // Keep only the last 100 entries
+            }
+
+            // Save the updated list
+            chrome.storage.local.set({ copiedStack }, () => {
+              updateCopiedList(copiedStack); // Update the list in the popup
+              textInput.value = ''; // Clear the input field
+              // alert('Text added successfully.');
+              document.getElementById("add-text-status-err").style.display = "none";
+              document.getElementById("add-text-status-success").style.display = "block";
+              document.getElementById("add-text-status-success").textContent = "Text added successfully.";
+            });
+          } else {
+            document.getElementById("add-text-status-err").style.display = "block";
+            document.getElementById("add-text-status-success").style.display = "none";
+            document.getElementById("add-text-status-err").textContent = "This text already exists in the list.";
+          }
+        });
+      });
+    } else {
+      document.getElementById("add-text-status-err").style.display = "block";
+      document.getElementById("add-text-status-success").style.display = "none";
+      document.getElementById("add-text-status-err").textContent = "Please enter some text.";
+    }
+  });
+
 
   // Function to paginate the copied list
   function paginateCopiedList(copiedStack) {
@@ -28,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const textSpan = document.createElement('span');
       textSpan.className = 'ellipsis-text';
       textSpan.textContent = item.text;
-      
+
       const toggleSpan = document.createElement('span');
       toggleSpan.className = 'view-toggle';
       toggleSpan.textContent = 'View More';
@@ -50,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       textTd.appendChild(textSpan);
       textTd.appendChild(urlSpan);
-      if (item?.length>50) {
+      if (item?.length > 50) {
         textTd.appendChild(toggleSpan);
       }
 
@@ -158,7 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Download all copied text as a text file
   downloadBtn.addEventListener('click', () => {
     chrome.storage.local.get({ copiedStack: [] }, (result) => {
-      const allText = result.copiedStack.join('\n');
+      const allText = result.copiedStack
+        .map(item => `${item.url}\n${item.text}\n`) // First the URL, then the text, then a blank line
+        .join('\n'); // Join each entry with a new line
+      
       const blob = new Blob([allText], { type: 'text/plain' });
       const downloadLink = document.createElement('a');
       downloadLink.href = URL.createObjectURL(blob);

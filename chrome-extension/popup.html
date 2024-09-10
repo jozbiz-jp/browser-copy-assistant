@@ -23,7 +23,7 @@
             <i class="material-icons right copied-list-brand-info-icon">info_outline</i>
         </a>
     </div>
-    <div id="copied-list-top-btns" class="btn-list">
+    <div id="copied-list-top-btns" class="btn-list" style="display: none;">
         <button id="copy-all-btn" class="btn waves-effect waves-light" name="action">
             Copy All
             <i class="material-icons right">content_copy</i>
@@ -32,6 +32,21 @@
             Download All
             <i class="material-icons right">file_download</i>
         </button>
+    </div>
+
+
+    <div class="copied-list-add-wrapper">
+        <div class="input-field col s12 copied-list-add-input">
+            <textarea id="text-input" class="materialize-textarea" placeholder="Save your text here.."></textarea>
+        </div>
+        <div class="bca-text-add-line">
+            <button id="add-text-btn" class="bca-text-add btn waves-effect waves-light" name="action">
+                Save Text
+                <i class="material-icons right">add_to_photos</i>
+            </button>
+            <span id="add-text-status-err" class="bca-text-add-info-red"></span>
+            <span id="add-text-status-success" class="bca-text-add-info-success"></span>
+        </div>
     </div>
 
 
