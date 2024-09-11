@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Browser Copy Assistant",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Tracks copied text across browser tabs and allows viewing, copying, and downloading the selected texts.",
     "permissions": ["storage", "activeTab"],
     "action": {

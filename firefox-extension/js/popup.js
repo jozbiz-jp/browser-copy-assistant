@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (enteredText) {
       // Get the current tab URL
-      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      browser.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const activeTab = tabs[0];
         const pageUrl = activeTab.url; // Use the active tab's URL
 
         // Add the text and URL to local storage
-        chrome.storage.local.get({ copiedStack: [] }, (result) => {
+        browser.storage.local.get({ copiedStack: [] }, (result) => {
           let copiedStack = result.copiedStack || [];
 
           // Check if the text already exists in the list
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Save the updated list
-            chrome.storage.local.set({ copiedStack }, () => {
+            browser.storage.local.set({ copiedStack }, () => {
               updateCopiedList(copiedStack); // Update the list in the popup
               textInput.value = ''; // Clear the input field
               showStatusMessage("success", "Text added successfully.");
@@ -160,10 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to remove item from the stack and update the table
   function removeItemFromStack(id) {
-    chrome.storage.local.get({ copiedStack: [] }).then((result) => {
+    browser.storage.local.get({ copiedStack: [] }).then((result) => {
       let copiedStack = result.copiedStack || [];
       copiedStack = copiedStack.filter(item => item.id !== id); // Remove by ID
-      chrome.storage.local.set({ copiedStack }).then(() => {
+      browser.storage.local.set({ copiedStack }).then(() => {
         updateCopiedList(copiedStack); // Update the list after deletion
       });
     });
@@ -203,14 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Load copied stack from storage
-  chrome.storage.local.get({ copiedStack: [] }, (result) => {
+  browser.storage.local.get({ copiedStack: [] }, (result) => {
     const copiedStack = result.copiedStack || [];
     updateCopiedList(copiedStack); // Render copied texts in table
   });
 
   // Copy all items to clipboard
   copyAllBtn.addEventListener('click', () => {
-    chrome.storage.local.get({ copiedStack: [] }, (result) => {
+    browser.storage.local.get({ copiedStack: [] }, (result) => {
       const allText = result.copiedStack.map(item => item.text).join('\n');
       navigator.clipboard.writeText(allText).then(() => {
         showStatusMessage("success", "Copied all to clipboard.");
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Download all copied text as a text file
   downloadBtn.addEventListener('click', () => {
-    chrome.storage.local.get({ copiedStack: [] }, (result) => {
+    browser.storage.local.get({ copiedStack: [] }, (result) => {
       const allText = result.copiedStack
         .map(item => `${item.url}\n${item.text}\n`) // First the URL, then the text, then a blank line
         .join('\n'); // Join each entry with a new line
