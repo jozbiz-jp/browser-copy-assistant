@@ -42,7 +42,6 @@ The extension prevents saving duplicate entries and limits the stored text to th
 
 ## Future Enhancements
 
-- Launch in Firefox extensions
 - Option to clear the entire list of copied texts.
 - Dark mode for the popup interface.
 - Support for syncing copied texts across multiple devices using Chrome Sync.
