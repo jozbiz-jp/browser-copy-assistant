@@ -5,6 +5,7 @@ The extension prevents saving duplicate entries and limits the stored text to th
 
 # Extension Links:
 [Chrome Extension](https://chromewebstore.google.com/detail/browser-copy-assistant/okecmfbpgkjencmdlphdomdlocabbphb)
+<br/>
 [Firefox Extension](https://addons.mozilla.org/en-GB/firefox/addon/browser-copy-assistant/)
 
 ## Features
